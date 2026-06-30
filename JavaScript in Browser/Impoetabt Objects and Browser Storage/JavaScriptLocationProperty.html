@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Location Property Demo</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .section {
+      margin-top: 100vh;
+      padding: 50px;
+      background-color: #ccc;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Location Property Demo</h1>
+
+  <p>Click the buttons below to interact with the <code>location</code>property.</p>
+
+  <button id="goToSection">Go to Section</button>
+  <button id="reloadPage">Reload Page</button>
+  <button id="redirectPage">Redirect to Google</button>
+  <button id="showHref">Show Current URL</button>
+
+  <div id="output"></div>
+
+  <div class="section" id ="targetSection">
+    <h2>Target Section</h2>
+    <p>you have navigated to this section using the locaation hash</p>
+  </div>
+
+  <script>
+    
+    // Go to Section
+    const goToSectionButton = document.getElementById("goToSection");
+    const reloadButton = document.getElementById("reloadPage");
+    const redirectButton = document.getElementById("redirectPage");
+    const showHrefButton = document.getElementById("showHref");
+
+    const outputField = document.getElementById("output");
+   
+    goToSectionButton.addEventListener("click", function handle() {
+        location.hash = "targetSection";
+});
+// Reload Page
+    reloadButton.addEventListener("click", function handle() {
+        location.reload(true);
+});
+
+// // Redirect to Google
+    redirectButton.addEventListener("click", function () {
+       location.replace("https://www.google.com");
+});
+ // Show Current URL
+    showHrefButton.addEventListener("click", function () {
+        outputField.textContent = location.href;
+//   alert(location.href);
+});
+  </script>
+
+</body>
+</html>

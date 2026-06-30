@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            background-color: lightcoral;
+            border: 5px solid black;
+            margin: 0 auto;
+            height: 300px;
+            width: 250px;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #basic-form {
+            margin-top: 20px;
+            background-color:lightgreen;
+            padding: 20px;
+            border: 3px solid black;
+        }
+        #click-me {
+            height: 50px;
+            width: 100px;
+            background-color: coral;
+            margin-top: 50px;
+        }
+        </style>
+</head>
+<body>
+    <div id="container">
+        <form id="basic-form">
+            <label for="name">First name</label>
+            <input type="text" id="name" name="First name" placeholder="Enter your First name" onkeyup="handleKeyDown(event);"> 
+            <br><br>
+
+            <label for=" LastName">Last name</label>
+            <!-- <input type="text" id="name" name="last name" placeholder="Enter your Last name" onkeyup="handleKeyDown(event)"> -->
+            <input type="text" id="name" name="last name" placeholder="Enter your Last name" onkeyup="handleKeyUp(event)">
+            
+            <br><br>
+
+            <label for="email">Email:</label>
+            <!-- <input type="email" id="email" name="email" placeholder="Enter Your email" onkeydown="handleKeyDown();"> -->
+            <!-- <input type="email" id="email" name="email" placeholder="Enter Your email" oninput="handleInput(this);"> -->
+            <!-- <input type="email" id="email" name="email" placeholder="Enter Your email" onchange="handleChange(this);"> -->
+            <input type="email" id="email" name="email" placeholder="Enter Your email" onfocus="handleFocus(this);" onblur="handleBlur(this);">
+
+
+
+            <br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- <button id="click-me" onclick= "console.log(`Clicked!`)">Click me</button> -->
+        <!-- <button id="click-me" onclick="handleClick();">Click me</button> -->
+        <!-- <button id="click-me" onclick="handleClick(this);">Click me</button> -->
+        <!-- <button id="click-me" ondblclick="handleClick(this);">Click me</button> -->
+        <button id="click-me" onmouseover="handleOver(this);" onmouseout="handleOut(this)";>Click me</button>
+        
+
+    </div>
+</body>
+    <script src="BasicMouseEvent.js"></script>
+
+</html>

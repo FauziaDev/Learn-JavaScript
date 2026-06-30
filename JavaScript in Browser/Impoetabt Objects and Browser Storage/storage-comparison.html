@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>localStorage vs sessionStorage</title>
+
+<style>
+    body{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.container{
+    margin-bottom: 30px;
+}
+
+label{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+input{
+    padding: 5px;
+    width: 250px;
+}
+
+button{
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#output{
+    margin-top: 15px;
+    min-height: 30px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+ul{
+    margin-top: 10px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>localStorage vs sessionStorage in JavaScript</h1>
+
+<div class="container">
+    <h2>Set Data</h2>
+
+    <label for="key">Key:</label>
+    <input type="text" id="key" placeholder="Enter key">
+
+    <label for="value">Value:</label>
+    <input type="text" id="value" placeholder="Enter value">
+
+    <button onclick="saveToLocal()">Save to localStorage</button>
+    <button onclick="saveToSession()">Save to sessionStorage</button>
+</div>
+
+<div class="container">
+    <h2>View Data</h2>
+
+    <button onclick="viewLocal()">View localStorage</button>
+    <button onclick="viewSession()">View sessionStorage</button>
+
+    <div class="output" id="output"></div>
+</div>
+
+<div class="container">
+    <h2>Clear Data</h2>
+
+    <button onclick="clearLocal()">Clear localStorage</button>
+    <button onclick="clearSession()">Clear sessionStorage</button>
+</div>
+
+<div class="container">
+    <h2>Key Differences</h2>
+
+    <ul>
+        <li><strong>localStorage:</strong> Data persists even after the browser is closed and reopened.</li>
+        <li><strong>sessionStorage:</strong> Data is cleared when the browser tab is closed.</li>
+        <li>Both are limited to the same-origin policy.</li>
+    </ul>
+</div>
+<script>
+    function saveToLocal() {
+    const key = document.getElementById("key").value;
+    const value = document.getElementById("value").value;
+    if (key && value) {
+    localStorage.setItem(key, value);
+    alert(`Data saved to localStorage: {${key}: ${value}}`);
+}  else {
+    alert('please enter both key and value');
+}
+    }
+
+function saveToSession() {
+    const key = document.getElementById("key").value;
+    const value = document.getElementById("value").value;
+    if (key && value) {
+    sessionStorage.setItem(key, value);
+    alert(`Data saved to sessionStorage:{${key}: ${value}}`);
+     }  else {
+    alert('please enter both key and value');
+}
+    }
+
+function viewLocal() {
+    const output = document.getElementById('output');
+    const keys = Object.keys(localStorage);
+
+    if (keys.length) {
+        output.innerHTML ='<h3>localStorage:</h3><ul>' +keys.map(key =>
+                `<li>${key}: ${localStorage.getItem(key)}</li>`).join('') +
+            '</ul>';
+    } else {
+        output.innerHTML ='<h3>localStorage:</h3><p>No data found.</p>';
+    }
+}
+function viewSession() {
+    const output = document.getElementById('output');
+    const keys = Object.keys(sessionStorage);
+
+    if (keys.length) {
+        output.innerHTML =
+            '<h3>sessionStorage:</h3><ul>' +keys.map(key =>`<li>${key}: ${sessionStorage.getItem(key)}</li>` ).join('') +
+            '</ul>';
+    } else {
+        output.innerHTML = '<h3>sessionStorage:</h3><p>No data found.</p>';
+    }
+}
+function clearLocal() {
+    localStorage.clear();
+    alert('localStorage cleared!');
+}
+
+function clearSession() {
+    sessionStorage.clear();
+    alert('sessionStorage cleared!');
+}
+
+</script>
+</body>
+
+
+
+</html>

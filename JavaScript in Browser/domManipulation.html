@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="example">
+  <p>This is <span style="display: none;">hidden</span> text.</p>
+</div>
+
+<div class="box" id="toggleBox"> This is a box. </div>
+<br>
+<button onclick="toggleHighlight()"> Toggle Highlight </button>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: lightgray;
+        margin-top: 20px;
+    }
+    .highlight {
+        background-color: yellow;
+    }
+</style>
+<p id="paragraph">This is a sample paragraph.</p>
+
+<button onclick="changeStyle()">Change Style</button>
+ <button id="colorButton" class="blue">Change Color</button>
+<style>
+  .blue { background-color: blue; }
+  .green { background-color: green; }
+</style>
+<script>
+  const button = document.getElementById("colorButton");
+  button.addEventListener("click", () => {
+    button.classList.toggle("green");
+  });
+</script>
+<div id="container"></div>
+<script>
+  const container = document.getElementById("container");
+  container.innerHTML = "<strong>Welcome!</strong> This is a dynamic message.";
+</script>
+
+
+</body>
+<script src="domManipulation.js"></script>
+</html>
+

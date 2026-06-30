@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Events Practice</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        #container{
+            width: 350px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 3px solid black;
+            background-color: lightblue;
+        }
+
+        input, select{
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+
+        #message{
+            margin-top: 20px;
+            font-size: 18px;
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+
+    <h2>Form Events Practice</h2>
+
+    <!-- Focus Event -->
+    <label>Name (Focus Event)</label>
+    <input
+        type="text"
+        placeholder="Enter your name"
+        onfocus="handleFocus(event)"
+    >
+
+    <!-- Blur Event -->
+    <label>Email (Blur Event)</label>
+    <input
+        type="email"
+        placeholder="Enter your email"
+        onblur="handleBlur(event)"
+    >
+
+    <!-- Input Event -->
+    <label>Phone Number (Input Event)</label>
+    <input
+        type="tel"
+        placeholder="Enter your phone number"
+        oninput="handleInput(event)"
+    >
+
+    <!-- KeyUp Event -->
+    <label>Username (KeyUp Event)</label>
+    <input
+        type="text"
+        placeholder="Enter your username"
+        onkeyup="handleKeyUp(event)"
+    >
+
+    <!-- KeyDown Event -->
+    <label>Password (KeyDown Event)</label>
+    <input
+        type="password"
+        placeholder="Enter your password"
+        onkeydown="handleKeyDown(event)"
+    >
+
+    <!-- Change Event -->
+    <label>Country (Change Event)</label>
+    <select onchange="handleChange(event)">
+        <option value="">Select Country</option>
+        <option>India</option>
+        <option>USA</option>
+        <option>Canada</option>
+    </select>
+
+    <p id="message"></p>
+
+   </div>
+
+<script src="event.js"></script>
+
+</body>
+</html>
